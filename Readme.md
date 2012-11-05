@@ -1,6 +1,6 @@
-# signalr
+# signalize
 
-[![Build Status](https://secure.travis-ci.org/Gozala/signalr.png)](http://travis-ci.org/Gozala/signalr)
+[![Build Status](https://secure.travis-ci.org/Gozala/signalize.png)](http://travis-ci.org/Gozala/signalize)
 
 [Functional Reactive Programming][FRP] (FRP) is a programming paradigm for
 working with *time-varying* values, better capturing the temporal aspect of
@@ -18,7 +18,7 @@ Signal is very low level construct that can be used to create signals from
 scratch:
 
 ```js
-var signal = require("signalr/signal")
+var signal = require("signalize/signal")
 var time = signal(function(next) {
   setInterval(function() {
     next(Date.now())
@@ -50,7 +50,7 @@ watch(time, function onTimechange(value) {
 
 ## Install
 
-    npm install signalr
+    npm install signalize
 
 [FRP]:http://en.wikipedia.org/wiki/Functional_reactive_programming
 [Watchables]:https://github.com/Gozala/watchables

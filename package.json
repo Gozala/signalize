@@ -1,20 +1,20 @@
 {
-  "name": "signalr",
-  "id": "signalr",
+  "name": "signalize",
+  "id": "signalize",
   "version": "0.0.2",
   "description": "Signals in a functional reactive style",
   "keywords": [
-    "signalr", "FRP", "functional", "reactive", "signal"
+    "signalize", "FRP", "functional", "reactive", "signal"
   ],
   "author": "Irakli Gozalishvili <rfobic@gmail.com> (http://jeditoolkit.com)",
-  "homepage": "https://github.com/Gozala/signalr",
+  "homepage": "https://github.com/Gozala/signalize",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Gozala/signalr.git",
-    "web": "https://github.com/Gozala/signalr"
+    "url": "https://github.com/Gozala/signalize.git",
+    "web": "https://github.com/Gozala/signalize"
   },
   "bugs": {
-    "url": "http://github.com/Gozala/signalr/issues/"
+    "url": "http://github.com/Gozala/signalize/issues/"
   },
   "devDependencies": {
     "test": "~0.x.0",
@@ -31,7 +31,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/Gozala/signalr/License.md"
+      "url": "https://github.com/Gozala/signalize/License.md"
     }
   ],
   "dependencies": {

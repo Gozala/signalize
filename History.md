@@ -1,5 +1,10 @@
 # Changes
 
+## 0.0.3 / 2012-11-03
+
+  - Rename to signalize to avoid conflicts with MS
+    [signalr](https://github.com/SignalR/SignalR)
+
 ## 0.0.2 / 2012-11-03
 
   - Factor out type definition into separate module.
