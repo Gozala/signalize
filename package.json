@@ -1,0 +1,42 @@
+{
+  "name": "signalr",
+  "id": "signalr",
+  "version": "0.0.1",
+  "description": "Signals in a functional reactive style",
+  "keywords": [
+    "signalr", "FRP", "functional", "reactive", "signal"
+  ],
+  "author": "Irakli Gozalishvili <rfobic@gmail.com> (http://jeditoolkit.com)",
+  "homepage": "https://github.com/Gozala/signalr",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gozala/signalr.git",
+    "web": "https://github.com/Gozala/signalr"
+  },
+  "bugs": {
+    "url": "http://github.com/Gozala/signalr/issues/"
+  },
+  "devDependencies": {
+    "test": "~0.x.0",
+    "phantomify": "~0.x.0",
+    "repl-utils": "~1.0.0"
+  },
+  "main": "./index.js",
+  "scripts": {
+    "repl": "node node_modules/repl-utils",
+    "test": "npm run test-node && npm run test-browser",
+    "test-browser": "node ./node_modules/phantomify/bin/cmd.js ./test/index.js",
+    "test-node": "node ./test/index.js"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/Gozala/signalr/License.md"
+    }
+  ],
+  "dependencies": {
+    "method": "~0.1.1",
+    "event": "0.0.1",
+    "watchables": "0.0.3"
+  }
+}
