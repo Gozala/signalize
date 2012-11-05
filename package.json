@@ -1,7 +1,7 @@
 {
   "name": "signalr",
   "id": "signalr",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Signals in a functional reactive style",
   "keywords": [
     "signalr", "FRP", "functional", "reactive", "signal"
