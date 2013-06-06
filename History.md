@@ -1,14 +1,18 @@
 # Changes
 
-## 0.0.3 / 2012-11-03
+## 0.1.0
+
+  - Rewrite signals without dependency on reducers.
+
+## 0.0.3
 
   - Rename to signalize to avoid conflicts with MS
     [signalr](https://github.com/SignalR/SignalR)
 
-## 0.0.2 / 2012-11-03
+## 0.0.2
 
   - Factor out type definition into separate module.
 
-## 0.0.1 / 2012-11-03
+## 0.0.1
 
   - Initial release

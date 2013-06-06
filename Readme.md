@@ -2,6 +2,8 @@
 
 [![Build Status](https://secure.travis-ci.org/Gozala/signalize.png)](http://travis-ci.org/Gozala/signalize)
 
+[![Browser support](https://ci.testling.com/Gozala/signalize.png)](https://ci.testling.com/Gozala/signalize)
+
 [Functional Reactive Programming][FRP] (FRP) is a programming paradigm for
 working with *time-varying* values, better capturing the temporal aspect of
 mutable state. Signal is a data structure representing a time-varying value.
@@ -18,25 +20,21 @@ Signal is very low level construct that can be used to create signals from
 scratch:
 
 ```js
-var signal = require("signalize/signal")
-var time = signal(function(next) {
+var signal = require("signalize/core").signal
+var time = signal(function(self, next) {
   setInterval(function() {
     next(Date.now())
   }, 1000)
 })
 ```
 
-Signals implement [Watchables][] abstraction which allows one to subscribe
-and unsubscribe from signal changes:
+Signals can be spawned in order to consume it's changes:
 
 ```js
-var watch = require("watchables/watch")
-var unwatch = require("watchables/unwatch")
+var spawn = require("signalize/core").spawn
 
-var end = Date.now() +  1000 * 5
-watch(time, function onTimechange(value) {
+spawn(function(value) {
   console.log(value)
-  if (end - value <= 0) unwatch(time, onTimechange)
 })
 
 // => 1352077824718
@@ -53,4 +51,3 @@ watch(time, function onTimechange(value) {
     npm install signalize
 
 [FRP]:http://en.wikipedia.org/wiki/Functional_reactive_programming
-[Watchables]:https://github.com/Gozala/watchables
