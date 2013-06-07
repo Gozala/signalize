@@ -92,26 +92,30 @@ spawn.implement(empty, function(empty, next) {
 exports.empty = empty
 
 
-function Signal(generator) {
+function Signal(spawn) {
   /**
   Type reperesenting signals
   **/
-  this[spawn] = generator
+  this.spawn = spawn
 }
+spawn.define(Signal, function(signal, next) {
+  return signal.spawn(next)
+})
 
-function signal(generator) {
+
+function signal(spawn) {
   /**
   Constructs signal value from a function that is given
-  `self` this signal instance and `next` function calling
-  which will emit new value
+  invoked every time signal is spawned passing it a `next`
+  function for yielding a new values.
 
-  signal(function(self, next) {
+  signal(function(next) {
     next(1)
     next(2)
     next(END)
   })
   **/
-  return new Signal(generator)
+  return new Signal(spawn)
 }
 
 
@@ -148,7 +152,7 @@ function folds(folder, start, input) {
   function sum(a, b) { return a + b }
   folds(sum, 0, [1, 2, 3, 4])        // => <1 3 6 10>
   **/
-  return signal(function(self, next) {
+  return signal(function(next) {
     var transformed = false
     var result = start
     return spawn(input, function(item) {
@@ -255,7 +259,7 @@ function take(n, input) {
   /**
   take(3, [1, 2, 3, 4, 5])             // => <1 2 3>
   **/
-  return signal(function(self, next) {
+  return signal(function(next) {
     spawn(folds(taker(n), null, input), next)
   })
 }
@@ -272,7 +276,7 @@ function drop(n, input) {
   /**
   drop(3, [1, 2, 3, 4, 5])           // => <4 5>
   **/
-  return signal(function(self, next) {
+  return signal(function(next) {
     spawn(folds(dropper(n), null, input), next)
   })
 }
@@ -323,7 +327,7 @@ function stoper(input) {
 // and `END` items and returns input that contains all
 // items, but `START` & `END` except the last `END`.
 function ender(input) {
-  return signal(function(self, next) {
+  return signal(function(next) {
     var pending = 0
     var state = null
     return spawn(input, function(item) {
@@ -363,7 +367,7 @@ function merge(inputs) {
   ]))
   // => <2 4 4>
   **/
-  var merged = signal(function(self, next) {
+  var merged = signal(function(next) {
     var result = next(START)
     spawn(inputs, function(input) {
       next(START)
