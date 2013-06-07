@@ -21,7 +21,7 @@ scratch:
 
 ```js
 var signal = require("signalize/core").signal
-var time = signal(function(self, next) {
+var time = signal(function(next) {
   setInterval(function() {
     next(Date.now())
   }, 1000)
@@ -33,7 +33,7 @@ Signals can be spawned in order to consume it's changes:
 ```js
 var spawn = require("signalize/core").spawn
 
-spawn(function(value) {
+spawn(time, function(value) {
   console.log(value)
 })
 

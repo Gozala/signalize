@@ -1,5 +1,10 @@
 # Changes
 
+## 0.1.1
+
+  - Upadate `signal` API to avoid passing `self` each
+    time.
+
 ## 0.1.0
 
   - Rewrite signals without dependency on reducers.
