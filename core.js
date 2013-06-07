@@ -117,6 +117,7 @@ function signal(spawn) {
   **/
   return new Signal(spawn)
 }
+exports.signal = signal
 
 
 function Constant(value) {
